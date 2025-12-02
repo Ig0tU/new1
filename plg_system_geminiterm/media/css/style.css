@@ -1,0 +1,119 @@
+:root {
+    --gt-bg: #0d1117;
+    --gt-fg: #c9d1d9;
+    --gt-accent: #58a6ff;
+    --gt-error: #ff7b72;
+    --gt-success: #3fb950;
+    --gt-font: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+#gemini-terminal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
+#gemini-terminal-overlay.active {
+    display: flex;
+}
+
+#gemini-terminal-window {
+    width: 80%;
+    max-width: 900px;
+    height: 60vh;
+    background: var(--gt-bg);
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: var(--gt-font);
+    font-size: 14px;
+    color: var(--gt-fg);
+}
+
+.gt-header {
+    background: #161b22;
+    padding: 8px 12px;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.gt-title {
+    font-weight: 600;
+    color: var(--gt-accent);
+}
+
+.gt-status {
+    font-size: 12px;
+    color: #8b949e;
+}
+
+.gt-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    scroll-behavior: smooth;
+}
+
+.gt-line {
+    margin-bottom: 4px;
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+.gt-line.user {
+    color: var(--gt-fg);
+}
+.gt-line.user::before {
+    content: '❯ ';
+    color: var(--gt-accent);
+}
+
+.gt-line.system {
+    color: #8b949e;
+}
+
+.gt-line.error {
+    color: var(--gt-error);
+}
+
+.gt-line.success {
+    color: var(--gt-success);
+}
+
+.gt-input-area {
+    padding: 12px;
+    background: #161b22;
+    border-top: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+}
+
+.gt-prompt {
+    color: var(--gt-accent);
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+#gt-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--gt-fg);
+    font-family: var(--gt-font);
+    font-size: 14px;
+    outline: none;
+}
