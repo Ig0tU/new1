@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="plugin" group="system" method="upgrade">
+	<name>System - Gemini Terminal</name>
+	<author>The Universal Architect</author>
+	<creationDate>October 2023</creationDate>
+	<copyright>(C) 2023. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0.0</version>
+	<description>A Joomla/Yootheme operations terminal with Gemini-CLI infusion.</description>
+	<files>
+		<filename plugin="geminiterm">geminiterm.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<media destination="plg_system_geminiterm" folder="media">
+		<folder>js</folder>
+		<folder>css</folder>
+		<filename>index.html</filename>
+	</media>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="api_key"
+					type="text"
+					label="Gemini API Key"
+					description="Enter your Google Gemini API Key"
+				/>
+				<field
+					name="activation_key"
+					type="list"
+					default="Backquote"
+					label="Activation Key"
+					description="Key to toggle terminal">
+					<option value="Backquote">~ (Tilde/Backtick)</option>
+					<option value="F12">F12</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
